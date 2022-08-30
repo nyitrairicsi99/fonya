@@ -20,13 +20,13 @@ while True:
         print(error)
         break
 
-def findTerminalis(s):
+def terminalisKeres(s):
     for t in terminalis:
         if s.find(t)>=0:
             return t
     return False
 
-def getRandomCsere(termin):
+def randomCsere(termin):
     corrszabalyok = []
     for szab in szabalyok:
         if szab[0]==termin:
@@ -36,10 +36,10 @@ def getRandomCsere(termin):
 def getOutput(steps):
     string = kezdo
     for i in range(steps):
-        selectedTerminalis = findTerminalis(string)
+        selectedTerminalis = terminalisKeres(string)
         if not(selectedTerminalis):
             return string
-        randomcsere = getRandomCsere(selectedTerminalis)
+        randomcsere = randomCsere(selectedTerminalis)
         if randomcsere[1]=="E":
             randomcsere[1] = ""
         string = string.replace(randomcsere[0],randomcsere[1],1)
